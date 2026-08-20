@@ -1,0 +1,43 @@
+<idea-plugin>
+    <id>dev.zzzz.open-existing-clone</id>
+    <name>Open Existing Clone</name>
+    <vendor>zzzz</vendor>
+    <description><![CDATA[
+        Detects repositories that were already cloned locally.<br/>
+        Adds a <b>Local (本地已有)</b> tab to the <em>Get from Version Control</em> dialog and a
+        <b>File | Open Existing Clone…</b> action: paste a repository URL, and if a local clone exists
+        it is opened (and added to recent projects) instead of cloning again.
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.vcs</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <openapi.vcs.ui.cloneDialog.VcsCloneDialogExtension
+                id="dev.zzzz.open-existing-clone.localTab"
+                implementation="dev.zzzz.openexistingclone.LocalCloneDialogExtension"
+                order="after com.intellij.util.ui.cloneDialog.RepositoryUrlCloneDialogExtension"/>
+
+        <applicationConfigurable
+                parentId="tools"
+                id="dev.zzzz.open-existing-clone.configurable"
+                displayName="Open Existing Clone"
+                instance="dev.zzzz.openexistingclone.OpenExistingCloneConfigurable"/>
+    </extensions>
+
+    <actions>
+        <action id="Vcs.VcsClone"
+                class="dev.zzzz.openexistingclone.SmartGetFromVcsAction"
+                overrides="true"
+                text="Get from Version Control…"
+                description="Open the Get from Version Control dialog with Git (Open Existing) preselected"/>
+
+        <action id="dev.zzzz.open-existing-clone.openAction"
+                class="dev.zzzz.openexistingclone.OpenExistingCloneAction"
+                icon="/icons/openExistingClone.svg"
+                text="Open Existing Clone…"
+                description="Find a repository already cloned locally by its URL and open it (按 URL 打开本地已有克隆)">
+            <add-to-group group-id="OpenProjectGroup" anchor="last"/>
+        </action>
+    </actions>
+</idea-plugin>
