@@ -32,7 +32,7 @@ kotlin {
 intellijPlatform {
     pluginConfiguration {
         id = "dev.zzzz.open-existing-clone"
-        name = "Open Existing Clone"
+        name = "Clone or Open"
         version = project.version.toString()
         description = "When you paste a repository URL, detect that it was already cloned locally and open the existing project instead of cloning again."
         vendor {

@@ -1,4 +1,4 @@
-# Open Existing Clone
+# Clone or Open
 
 一个 JetBrains 平台插件(IntelliJ IDEA / WebStorm / PyCharm / RustRover / DataGrip 通用)。
 
@@ -10,6 +10,7 @@
 
 这个插件把这一步自动化:**粘贴仓库地址,如果克隆目标目录在本地已存在,按钮自动变成
 Open (打开),点击直接打开该项目(并加入最近项目);目录不存在则保持 Clone,走正常克隆流程。**
+没克隆过就 Clone、克隆过就 Open——插件名由此而来。
 
 ## 使用方式
 

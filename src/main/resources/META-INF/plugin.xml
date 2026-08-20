@@ -1,6 +1,6 @@
 <idea-plugin>
     <id>dev.zzzz.open-existing-clone</id>
-    <name>Open Existing Clone</name>
+    <name>Clone or Open</name>
     <vendor>zzzz</vendor>
     <description><![CDATA[
         Detects repositories that were already cloned locally.<br/>
